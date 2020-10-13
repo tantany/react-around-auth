@@ -1,0 +1,13 @@
+.header__item {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFF;
+  margin: 0;
+  list-style: none;
+  margin: 0 24px 0 0;
+}
+
+.header__item:last-of-type {
+  margin: 0;
+}

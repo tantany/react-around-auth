@@ -1,0 +1,15 @@
+.popup__container_image {
+  border: 0;
+  padding: 0;
+  box-shadow: unset;
+  border-radius: 0;
+  background-color: unset;
+  max-width: max-content;
+  top: 90px;
+}
+
+@media screen and (max-width: 425px) {
+  .popup__container_image {
+    top: 136px;
+  }
+}

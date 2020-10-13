@@ -1,0 +1,15 @@
+.authorize__input {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFF;
+  background-color: unset;
+  border: unset;
+  border-bottom: 2px solid #CCC;
+  outline: unset;
+  margin-bottom: 30px;
+}
+
+.authorize__input:last-of-type {
+  margin: 0;
+}

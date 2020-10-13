@@ -1,0 +1,10 @@
+.element__heart {
+  height: 18px;
+  width: 20px;
+  background-size: 20px;
+  margin-bottom: 3px;
+  background-image: url(../../../images/heart.svg);
+  background-color: unset;
+  border: 0;
+  padding: 0;
+}

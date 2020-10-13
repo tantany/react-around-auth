@@ -1,0 +1,28 @@
+@import url('./__item/header__item.css');
+@import url('./__button/header__button.css');
+@import url('./__container/header__container.css');
+
+.header {
+  padding-top: 45px;
+  max-width: 882px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 28px;
+  }
+}

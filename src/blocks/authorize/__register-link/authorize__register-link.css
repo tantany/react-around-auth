@@ -1,0 +1,11 @@
+.authorize__register-link {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFF;
+  margin: auto;
+  padding-bottom: 80px;
+  display: block;
+  text-decoration: none;
+}
