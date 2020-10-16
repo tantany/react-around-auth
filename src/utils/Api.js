@@ -14,9 +14,6 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Something went wrong: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
     });
   }
 
@@ -35,9 +32,6 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Something went wrong: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
     });
   }
 
@@ -53,9 +47,6 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Something went wrong: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
     });
   }
 
@@ -74,10 +65,7 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Something went wrong: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+    });
   }
 
   // loading user information from the server
@@ -90,9 +78,6 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Something went wrong: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
     });
   }
 
@@ -107,9 +92,6 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Something went wrong: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
     });
   }
 
@@ -125,9 +107,6 @@ class Api {
           return res.json();
         }
         return Promise.reject(`Something went wrong: ${res.status}`);
-      })
-      .catch((err) => {
-        console.log(err);
       });
     }
     else {

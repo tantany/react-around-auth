@@ -1,38 +1,20 @@
 import React, { useEffect } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 import Authorize from './Authorize';
-import * as auth from '../auth.js';
 
 function Login(props) {
-  const [userEmail, setUserEmail] = React.useState('');
-  const [userPassword, setUserPassword] = React.useState('');
 
   const history = useHistory();
 
-  function resetForm() {
-    setUserEmail('');
-    setUserPassword('');
-  }
-
   function handleSubmit(e){
     e.preventDefault();
-    if (!userEmail || !userPassword) {
+    if (!props.userEmail || !props.userPassword) {
       return;
     }
-    auth.authorize(userEmail, userPassword)
-    .then((data) => {
-      if(!data) {
-        props.renderFailure();
-        throw new Error('Oops, something went wrong!');
-      }
-      if (data.token) {
-        props.handleLogin(true);
-        props.renderSuccess();
-      }
-    })
-    .then(resetForm)
+    props.authorize()
     .then(() => history.push('/around'))
     .catch(err => {
+      console.log(err);
       props.renderFailure();
     });
   }
@@ -41,10 +23,10 @@ function Login(props) {
     if(localStorage.getItem('jwt')) {
       history.push('/around');
     }
-  }, [history])
+  }, [])
 
   return(
-      <Authorize signOut={props.signOut} link={props.link} title={props.title} userEmail={userEmail} userPassword={userPassword} redirect={props.redirect} handleSubmit={handleSubmit} value="Not a member yet? Sign up here!" setUserEmail={setUserEmail} setUserPassword ={setUserPassword} />
+      <Authorize signOut={props.signOut} link={props.link} title={props.title} userEmail={props.userEmail} userPassword={props.userPassword} redirect={props.redirect} handleSubmit={handleSubmit} value="Not a member yet? Sign up here!" setUserEmail={props.setUserEmail} setUserPassword ={props.setUserPassword} />
   )
 }
 

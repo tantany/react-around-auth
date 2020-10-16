@@ -11,9 +11,9 @@ import ImagePopup from './ImagePopup';
 import api from '../utils/Api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import { CardsContext } from '../contexts/CardsContext';
-import InfoTooltip from './InfoTooltip';
+import * as auth from '../utils/auth.js';
 
-function App(props) {
+function AroundUs(props) {
   //popup
   const [popupState, setPopupState] = React.useState({
     isEditProfilePopupOpen: false,
@@ -29,13 +29,29 @@ function App(props) {
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api.getUserInfo().then(result => {
+    api.getUserInfo()
+    .then((result) => {
       setCurrentUser(result);
+    })
+    .then(() => {
+      api.getInitialCards().then(result => {
+        setCards(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 
-    api.getInitialCards().then(result => {
-      setCards(result);
-    });
+    const jwt = localStorage.getItem('jwt');
+    auth.getContent(jwt)
+      .then((res) => {
+        if(res) {
+          props.setUserEmail(res.data.email);
+        }
+      });
   }, []);
 
   //popup handlers
@@ -57,7 +73,7 @@ function App(props) {
     });
   }
 
-  function closeAllPopups() {
+  function closeAllPopups(evt) {
     setPopupState({
       isEditProfilePopupOpen: false,
       isAddPlacePopupOpen: false,
@@ -78,6 +94,9 @@ function App(props) {
     api.changeLikeStatus(isLiked, cardProps.card._id).then((newCard) => {
         const newCards = cards.map((c) => c._id === cardProps.card._id ? newCard : c);
         setCards(newCards);
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -87,6 +106,9 @@ function App(props) {
         return c._id !== cardProps.card._id
       });
       setCards(newCards);
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -95,6 +117,9 @@ function App(props) {
     api.sendUserInfo(info).then((newUser) => {
       setCurrentUser(newUser);
       closeAllPopups();
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -103,6 +128,9 @@ function App(props) {
     api.sendCardData(cardProps).then((newCard) => {
       setCards([newCard, ...cards]);
       closeAllPopups();
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -111,6 +139,9 @@ function App(props) {
     api.sendUserAvatar(avatar).then((newUser) => {
       setCurrentUser(newUser);
       closeAllPopups();
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -133,7 +164,7 @@ function App(props) {
         </CardsContext.Provider>
       < Footer />
       {/* Edit name & occupation */}
-      <EditProfilePopup  onOpen={popupState.isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
+      <EditProfilePopup  onOpen={popupState.isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} isPopupOpen={popupState.isEditProfilePopupOpen} />
       </CurrentUserContext.Provider>
       {/* Adding new place */}
       <AddPlacePopup onOpen={popupState.isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} />
@@ -146,11 +177,9 @@ function App(props) {
       < PopupWithForm name='delete' title='Are you sure?' value='Yes' type='popup__fields_type_delete' />
       {/* Changing profile picture */}
       <EditAvatarPopup onOpen={popupState.isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
-      {/* Successful login */}
-      <InfoTooltip popupState={props.popupState} closePopup={props.closePopup} message={props.message} mode={props.mode} />
     </div>
   );
 }
 
 
-export default App;
+export default AroundUs;

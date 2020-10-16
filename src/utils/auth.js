@@ -11,7 +11,7 @@ export const register = (email, password) => {
   })
   .then((response) => {
     try {
-      if (response.status === 200){
+      if (response.status === 201){
         return response.json();
       }
     } catch(e){
@@ -21,7 +21,6 @@ export const register = (email, password) => {
   .then((res) => {
     return res;
   })
-  .catch((err) => console.log(err));
 };
 
 export const authorize = (email, password) => {
@@ -43,7 +42,6 @@ export const authorize = (email, password) => {
         return;
       }
     })
-    .catch((err) => console.log(err));
 };
 
 export const getContent = (token) => {
