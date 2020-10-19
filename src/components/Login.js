@@ -11,12 +11,7 @@ function Login(props) {
     if (!props.userEmail || !props.userPassword) {
       return;
     }
-    props.authorize()
-    .then(() => history.push('/around'))
-    .catch(err => {
-      console.log(err);
-      props.renderFailure();
-    });
+    props.authorize();
   }
 
   useEffect(() => {

@@ -21,12 +21,19 @@ function AddPlacePopup(props) {
     });
   }
 
+  function onKeyDown(evt) {
+    props.onAddPlace({
+      name: title,
+      link,
+    });
+  }
 
   return (
     < PopupWithForm name="add" title="New Place" value="Create" type=""
     onOpen={props.onOpen}
     onClose={props.onClose}
-    onSubmit={handleSubmit} >
+    onSubmit={handleSubmit}
+    onKeyDown={onKeyDown} >
       <label className="popup__field">
       <input onChange={handleTitleChange} type="text" id="title-input" className="form__input popup__item popup__place-title" name="name" placeholder="Title" minLength="1" maxLength="30" required />
           <span id="title-input-error" className="form__input-error"></span>

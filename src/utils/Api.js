@@ -120,9 +120,6 @@ class Api {
           return res.json();
         }
         return Promise.reject(`Something went wrong: ${res.status}`);
-      })
-      .catch((err) => {
-        console.log(err);
       });
     }
   }

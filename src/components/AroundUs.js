@@ -51,6 +51,9 @@ function AroundUs(props) {
         if(res) {
           props.setUserEmail(res.data.email);
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 

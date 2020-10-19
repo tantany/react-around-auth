@@ -8,12 +8,7 @@ function Register(props) {
 
   function handleSubmit(e){
     e.preventDefault()
-    props.register()
-    .then(() => history.push('/login'))
-    .catch(err => {
-      console.log(err);
-      props.renderFailure()
-    });
+    props.register();
   }
 
   useEffect(() => {

@@ -28,11 +28,23 @@ function EditProfilePopup(props) {
     });
   }
 
+  function onKeyDown(evt) {
+    if(evt.key === 'Enter') {
+      evt.preventDefault();
+      evt.stopPropagation();
+      props.onUpdateUser({
+        name,
+        about: description,
+      });
+    }
+  }
+
   return (
     < PopupWithForm name="edit" title="Edit profile" value="Save" type=""
       onOpen={props.onOpen}
       onClose={props.onClose}
-      onSubmit={handleSubmit} >
+      onSubmit={handleSubmit}
+      onKeyDown={onKeyDown} >
       <label className="popup__field">
         <input onChange={handleNameChange} value={name|| ''} type="text" id="name-input" className="form__input popup__item popup__name" name="userName" placeholder={"Name"} minLength="2" maxLength="40" pattern="[A-Za-z -]{1,}" required />
         <span id="name-input-error" className="form__input-error"></span>

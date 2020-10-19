@@ -55,6 +55,11 @@ function App() {
       }
     })
     .then(resetForm)
+    .then(() => history.push('/around'))
+    .catch(err => {
+      console.log(err);
+      renderFailure();
+    });
   }
 
   //signup
@@ -68,6 +73,11 @@ function App() {
       renderSuccess();
     })
     .then(resetForm)
+    .then(() => history.push('/login'))
+    .catch(err => {
+      console.log(err);
+      renderFailure()
+    });
   }
 
   //logout
@@ -88,6 +98,9 @@ function App() {
           setLoggedIn(true);
           history.push('/around');
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
     }
   }, []);
