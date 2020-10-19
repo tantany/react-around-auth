@@ -3,9 +3,9 @@
 
 ### Overview
 This project was built using react hooks.
-To build this project insert in the command prompt:
+- To build this project insert in the command prompt:
 npm run build
-To run this project in dev mode insert in the command prompt:
+- To run this project in dev mode insert in the command prompt:
 npm run start
 
 ### Languages:
