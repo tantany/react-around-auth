@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-around-auth/static/css/main.a15ecd8c.chunk.css",
+    "main.js": "/react-around-auth/static/js/main.e4dd8b46.chunk.js",
+    "main.js.map": "/react-around-auth/static/js/main.e4dd8b46.chunk.js.map",
+    "runtime-main.js": "/react-around-auth/static/js/runtime-main.c8c10083.js",
+    "runtime-main.js.map": "/react-around-auth/static/js/runtime-main.c8c10083.js.map",
+    "static/js/2.810fa8e7.chunk.js": "/react-around-auth/static/js/2.810fa8e7.chunk.js",
+    "static/js/2.810fa8e7.chunk.js.map": "/react-around-auth/static/js/2.810fa8e7.chunk.js.map",
+    "index.html": "/react-around-auth/index.html",
+    "precache-manifest.a101c00287540656849fa49c9b96bb0a.js": "/react-around-auth/precache-manifest.a101c00287540656849fa49c9b96bb0a.js",
+    "service-worker.js": "/react-around-auth/service-worker.js",
+    "static/css/main.a15ecd8c.chunk.css.map": "/react-around-auth/static/css/main.a15ecd8c.chunk.css.map",
+    "static/js/2.810fa8e7.chunk.js.LICENSE.txt": "/react-around-auth/static/js/2.810fa8e7.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/react-around-auth/static/media/trash.9c3b03ae.svg",
+    "static/media/logo.svg": "/react-around-auth/static/media/logo.3e6893cd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8c10083.js",
+    "static/js/2.810fa8e7.chunk.js",
+    "static/css/main.a15ecd8c.chunk.css",
+    "static/js/main.e4dd8b46.chunk.js"
+  ]
+}
